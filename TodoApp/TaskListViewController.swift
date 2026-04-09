@@ -79,7 +79,42 @@ class TaskListViewController: UIViewController, UITableViewDataSource, UITableVi
             self.fetchTasks()
             completion(true)
         }
+        
+        // Edit
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, completion in
 
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+            let alert = UIAlertController(title: "Edit Task", message: nil, preferredStyle: .alert)
+
+            alert.addTextField { textField in
+                textField.text = self.tasks[indexPath.row]
+            }
+
+            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { _ in
+
+                if let newText = alert.textFields?.first?.text {
+
+                    let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+
+                    do {
+                        let items = try self.context.fetch(fetchRequest)
+                        let item = items[indexPath.row]
+                        item.title = newText
+                        try self.context.save()
+                    } catch {
+                        print("Edit error")
+                    }
+
+                    self.fetchTasks()
+                }
+            }))
+
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+            self.present(alert, animated: true)
+
+            completion(true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
 }
