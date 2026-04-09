@@ -5,11 +5,16 @@ class TaskListViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
 
     var tasks: [String] = ["Test Task 1", "Test Task 2"]
-
+    var newTask: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
+        
+        if let task = newTask {
+               tasks.append(task)
+           }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

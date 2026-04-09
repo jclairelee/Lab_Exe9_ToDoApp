@@ -1,19 +1,16 @@
-//
-//  ViewController.swift
-//  TodoApp
-//
-//  Created by Claire Lee on 2026-04-08.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
+  
+    @IBOutlet weak var textField: UITextField!
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        if let destination = segue.destination as? TaskListViewController {
+
+            if let text = textField.text {
+                destination.newTask = text
+            }
+        }
     }
-
-
 }
-
