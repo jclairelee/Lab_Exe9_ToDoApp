@@ -17,16 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Task" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oTw-Te-0jP">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Task" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oTw-Te-0jP">
                                 <rect key="frame" x="20" y="218" width="353" height="38"/>
                                 <color key="textColor" name="AccentColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpO-2B-kfF">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpO-2B-kfF">
                                 <rect key="frame" x="147" y="364" width="98" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add Task"/>
+                                <connections>
+                                    <segue destination="RQS-cw-cqu" kind="show" id="a5t-6o-X8P"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -38,7 +41,6 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fpO-2B-kfF" secondAttribute="trailing" constant="20" id="HM1-d2-ifA"/>
                             <constraint firstItem="oTw-Te-0jP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="Me2-zZ-fBG"/>
                             <constraint firstItem="oTw-Te-0jP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Vfn-qF-RW3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fpO-2B-kfF" secondAttribute="bottom" constant="377" id="Xwf-EN-6Y7"/>
                             <constraint firstItem="fpO-2B-kfF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fMQ-lS-g0S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fpO-2B-kfF" secondAttribute="trailing" constant="30" id="h2Y-6k-2uP"/>
                             <constraint firstItem="fpO-2B-kfF" firstAttribute="top" secondItem="oTw-Te-0jP" secondAttribute="bottom" constant="50" id="rve-Ce-40c"/>
@@ -54,7 +56,7 @@
             <objects>
                 <viewController id="RQS-cw-cqu" customClass="TaskListViewController" customModule="TodoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jea-Nj-f64">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="793"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9JB-HE-GT3">
@@ -76,6 +78,7 @@
                         <viewLayoutGuide key="safeArea" id="syu-7P-wJz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ieu-LU-zVr"/>
                     <connections>
                         <outlet property="tableView" destination="9JB-HE-GT3" id="Kpl-cN-4uy"/>
                     </connections>
